@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/splitting/dist/splitting.css"
+    />
+
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .wrap {
+        margin: 0 auto;
+        width: 400px;
+        position: relative;
+      }
+      h3 {
+        width: 300px;
+        font-family: "Fredoka One", cursive;
+        font-size: 32px;
+        text-align: center;
+        color: transparent;
+        background-image: linear-gradient(#f7e064, #dc7b5a);
+        background-clip: text;
+      }
+      #result {
+        width: 300px;
+        font-family: "Fredoka One", cursive;
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+        color: transparent;
+        background-image: linear-gradient(#f7e064, #dc7b5a);
+        background-clip: text;
+        -webkit-box-reflect: below -10px
+          linear-gradient(transparent 30%, rgba(0, 0, 0, 0.5));
+      }
+      img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        object-position: top;
+        padding: 6px;
+        background-image: linear-gradient(#f7e064, #dc7b5a);
+        border-radius: 10px;
+      }
+      #userHistory {
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 12px 0;
+      }
+
+      #userHistory p,
+      #userHistory div {
+        font-family: "Fredoka One", cursive;
+        font-size: 18px;
+        text-align: center;
+        width: 40%;
+        color: transparent;
+        background-image: linear-gradient(#f7e064, #dc7b5a);
+        background-clip: text;
+      }
+      #userHistory p {
+        width: 20%;
+      }
+      .life {
+        width: 300px;
+        height: 30px;
+        border: 3px solid #dc7b5a;
+        border-radius: 10px;
+        background-color: #f54c14;
+      }
+      .lifeLeft {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        background-image: linear-gradient(-30deg, #f7e064, #dc7b5a);
+      }
+      #chance {
+        position: relative;
+        width: 300px;
+        margin: 12px 0;
+      }
+      #chance span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-weight: bold;
+      }
+      /* splitting */
+      .splitting .word,
+      .splitting .char {
+        color: inherit;
+        background-image: inherit;
+        background-clip: inherit;
+      }
+      .splitting .char {
+        animation: wave 1.2s both infinite;
+        animation-delay: calc(50ms * var(--char-index));
+      }
+
+      @keyframes wave {
+        20% {
+          transform: translateY(-0.3rem);
+        }
+        0%,
+        40% {
+          transform: translateY(0);
+        }
+      }
+
+      .inputBox {
+        margin-top: 20px;
+        width: 300px;
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+      }
+      #user {
+        width: 94px;
+        height: 40px;
+        border: 3px solid #dc7b5a;
+        background-color: #eee;
+        border-radius: 10px;
+        font-family: "Fredoka One", cursive;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        display: block;
+      }
+      #play {
+        width: 94px;
+        height: 40px;
+        border: 3px solid #dc7b5a;
+        background-color: #f7e064;
+        color: #dc7b5a;
+        border-radius: 10px;
+        display: block;
+        font-family: "Fredoka One", cursive;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+      }
+      #reset {
+        width: 94px;
+        height: 40px;
+        border: 3px solid #dc7b5a;
+        background-color: #f7e064;
+        color: #dc7b5a;
+        border-radius: 10px;
+        display: block;
+        font-family: "Fredoka One", cursive;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .deco-dot {
+        position: absolute;
+        z-index: -1;
+        animation: dot-move 30s both linear infinite;
+        &.dot-1 {
+          left: -2rem;
+          bottom: 0rem;
+          width: 12rem;
+          height: 12rem;
+          border-radius: 6rem 9rem 4rem 12rem;
+          background-image: linear-gradient(to right, #ffefd4, #eedeb4);
+          transform-origin: 40% 50%;
+        }
+        &.dot-2 {
+          left: -4rem;
+          top: -2rem;
+          width: 18rem;
+          height: 18rem;
+          border-radius: 16rem 20rem 12rem 18rem;
+          background-image: linear-gradient(to right, #d8e4eb, #cde9f9);
+          animation-direction: reverse;
+          animation-duration: 40s;
+          transform-origin: 55% 65%;
+        }
+        &.dot-3 {
+          right: -2rem;
+          top: 14rem;
+          width: 14rem;
+          height: 14rem;
+          border-radius: 25rem 22rem 28rem 36rem;
+          background-image: linear-gradient(to right, #daece2, #bee9d1);
+          animation-duration: 35s;
+          transform-origin: 40% 30%;
+        }
+      }
+      @keyframes dot-move {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="deco-dot dot-1"></div>
+      <div class="deco-dot dot-2"></div>
+      <div class="deco-dot dot-3"></div>
+      <h3>UP & DOWN GAME</h3>
+      <img src="img/lets-do-this.jpg" alt="" />
+      <div id="result" data-splitting>LET'S DO THIS</div>
+      <div id="userHistory">
+        <div class="userDown"></div>
+        <p>< ?? <</p>
+        <div class="userUp"></div>
+      </div>
+      <div id="chance">
+        <span>HP : 5 / 5</span>
+        <div class="life"><div class="lifeLeft"></div></div>
+      </div>
+      <div class="inputBox">
+        <input
+          type="number"
+          id="user"
+          placeholder="    1~100"
+          onkeypress="
+            if (event.keyCode == 13) {
+              play();
+            }
+          "
+        />
+        <button id="play">CHECK!</button>
+        <button id="reset">RETRY</button>
+      </div>
+    </div>
+    <script src="custom.js"></script>
+    <script>
+      Splitting();
+    </script>
+  </body>
+</html>
+<!-- 
+1. html 요소 가지고 오기
+2. 1~100까지의 숫자 만들기(random)
+3. user를 입력하고 play버튼을 클릭하면 입력한 값을 변수에 담아야함
+4. user가 입력한 수와 computer수를 비교
+com > user ==> up
+com < user> ==> down
+com == user ==> bingo
+
+-->
