@@ -19,8 +19,10 @@
       }
       .wrap {
         margin: 0 auto;
-        width: 400px;
+        /* width: 400px; */
         position: relative;
+        text-align: center;
+        overflow: hidden;
       }
       h3 {
         width: 300px;
@@ -30,6 +32,7 @@
         color: transparent;
         background-image: linear-gradient(#f7e064, #dc7b5a);
         background-clip: text;
+        margin: 20px auto 0;
       }
       #result {
         width: 300px;
@@ -42,10 +45,11 @@
         background-clip: text;
         -webkit-box-reflect: below -10px
           linear-gradient(transparent 30%, rgba(0, 0, 0, 0.5));
+        margin: 0 auto;
       }
       img {
         width: 300px;
-        height: 300px;
+        height: 260px;
         object-fit: cover;
         object-position: top;
         padding: 6px;
@@ -57,7 +61,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 12px 0;
+        margin: 12px auto;
       }
 
       #userHistory p,
@@ -89,7 +93,7 @@
       #chance {
         position: relative;
         width: 300px;
-        margin: 12px 0;
+        margin: 12px auto;
       }
       #chance span {
         position: absolute;
@@ -122,7 +126,7 @@
       }
 
       .inputBox {
-        margin-top: 20px;
+        margin: 20px auto;
         width: 300px;
         display: flex;
         text-align: center;
@@ -174,8 +178,8 @@
         z-index: -1;
         animation: dot-move 30s both linear infinite;
         &.dot-1 {
-          left: -2rem;
-          bottom: 0rem;
+          left: 34%;
+          bottom: 0;
           width: 12rem;
           height: 12rem;
           border-radius: 6rem 9rem 4rem 12rem;
@@ -183,8 +187,8 @@
           transform-origin: 40% 50%;
         }
         &.dot-2 {
-          left: -4rem;
-          top: -2rem;
+          left: 36%;
+          top: 0;
           width: 18rem;
           height: 18rem;
           border-radius: 16rem 20rem 12rem 18rem;
@@ -194,8 +198,8 @@
           transform-origin: 55% 65%;
         }
         &.dot-3 {
-          right: -2rem;
-          top: 14rem;
+          right: 40%;
+          top: 50%;
           width: 14rem;
           height: 14rem;
           border-radius: 25rem 22rem 28rem 36rem;
