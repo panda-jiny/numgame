@@ -38,7 +38,7 @@ function play() {
     historyDown.push(userNum);
   } else if (comNum < userNum) {
     result.innerHTML = `<span class="word" data-word="DOWN" style="--word-index: 0;"><span class="char" data-char="D" style="--char-index: 0;">D</span><span class="char" data-char="O" style="--char-index: 1;">O</span></span><span class="char" data-char="W" style="--char-index: 2;">W</span></span><span class="char" data-char="N" style="--char-index: 3;">N</span></span>`;
-    imgBox.src = "img/down.jfif";
+    imgBox.src = "img/down.gif";
     historyUp.push(userNum);
   } else if (comNum == userNum) {
     result.innerHTML = `<span class="word" data-word="BINGO!" style="--word-index: 0;"><span class="char" data-char="B" style="--char-index: 0;">B</span><span class="char" data-char="I" style="--char-index: 1;">I</span></span><span class="char" data-char="N" style="--char-index: 2;">N</span></span><span class="char" data-char="G" style="--char-index: 3;">G</span><span class="char" data-char="O" style="--char-index: 4;">O</span><span class="char" data-char="!" style="--char-index: 5;">!</span></span>`;
@@ -88,7 +88,7 @@ resetBtn.addEventListener("click", reset);
 function reset() {
   counterUser = 5;
   counter.textContent = `HP : ${counterUser} / 5`;
-  imgBox.src = "img/lets-do-this.jpg";
+  imgBox.src = "img/lets-do-this.gif";
   result.innerHTML = `<span class="word" data-word="LET'S" style="--word-index: 0;"><span class="char" data-char="L" style="--char-index: 0;">L</span><span class="char" data-char="E" style="--char-index: 1;">E</span><span class="char" data-char="T" style="--char-index: 2;">T</span><span class="char" data-char="'" style="--char-index: 3;">'</span><span class="char" data-char="S" style="--char-index: 4;">S</span></span><span class="whitespace"> </span><span class="word" data-word="DO" style="--word-index: 1;"><span class="char" data-char="D" style="--char-index: 5;">D</span><span class="char" data-char="O" style="--char-index: 6;">O</span></span><span class="whitespace"> </span><span class="word" data-word="THIS" style="--word-index: 2;"><span class="char" data-char="T" style="--char-index: 7;">T</span><span class="char" data-char="H" style="--char-index: 8;">H</span><span class="char" data-char="I" style="--char-index: 9;">I</span><span class="char" data-char="S" style="--char-index: 10;">S</span></span>`;
   history.length = 0;
   historyUp.length = 0;
